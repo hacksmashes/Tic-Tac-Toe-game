@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img class="page_res" src="sources/restart.png" alt="Not available" onclick="page_reload()" title="Start new game">
+        <h1 id="heading">Tic Tac Toe</h1>
+        <div class="play_area">
+            <div id="b1" class="box" onclick="mark(this)"></div>
+            <div id="b2" class="box" onclick="mark(this)"></div>
+            <div id="b3" class="box" onclick="mark(this)"></div>
+            <div id="b4" class="box" onclick="mark(this)"></div>
+            <div id="b5" class="box" onclick="mark(this)"></div>
+            <div id="b6" class="box" onclick="mark(this)"></div>
+            <div id="b7" class="box" onclick="mark(this)"></div>
+            <div id="b8" class="box" onclick="mark(this)"></div>
+            <div id="b9" class="box" onclick="mark(this)"></div>
+        </div>
+        <div class="turn">Lets START !</div>
+        <section class="details">
+            <section class="res_area">
+                <div id="win_symbol" class="win_symbol"></div>
+                <div id="win" class="winner"></div>
+            </section>
+            <button class="points" onclick="point()">View points</button>
+            <h2 id="r_h" class="res_head">score card</h2>
+            <section id="view" class="view">
+                <h3 id="t_m" class="tot_mat"></h3>
+                <h3 id="p_x" class="player_x"></h3>
+                <h3 id="p_o" class="player_o"></h3>
+                <h3 id="m_d" class="mat_draw"></h3>
+            </section>
+            <button class="restart" onclick="reset()">Play again</button>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

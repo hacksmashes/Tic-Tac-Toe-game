@@ -1,0 +1,684 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #4a80f0;
+    overflow: hidden;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    height: 80vh;
+    transform: translate(150px, 75px);
+    /* box-shadow: 10px 10px 30px rgba(53, 46, 46, 0.3),
+        -5px -5px 10px rgba(255, 255, 255, 0.1),
+        inset 10px 10px 30px rgba(53, 46, 46, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.1); */
+    box-shadow: 0px 15px 30px rgba(53, 46, 46, 0.3);
+    border-radius: 10px;
+}
+
+/* Game Title */
+.container h1 {
+    width: 235px;
+    height: 45px;
+    color: #e3ecff;
+    line-height: 40px;
+    font-size: 70px;
+    transform: translate(247px, 95px);
+    font-family: Dongle, sans-serif;
+}
+
+/* Game Title hover effects */
+.container h1:hover {
+    transform: translate(245px, 85px);
+    transition: 0.2s ease-out;
+    border-bottom: 2px solid #e3ecff;
+}
+
+/* Start new game (reload the page) */
+.container .page_res {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.container .page_res:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-out;
+}
+
+/* Game Board */
+.play_area {
+    width: 348px;
+    height: 350px;
+    transform: translate(181px, 130px);
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+/* Game board hover effects */
+.play_area:hover {
+    box-shadow: 0 0 20px #062c7c;
+    transition: all 0.2s ease-out;
+}
+
+/* Boxes */
+.box {
+    width: 115px;
+    height: 115px;
+    background-color: rgba(255, 255, 255, 0.548);
+    border: 0.5px solid rgba(0, 0, 0, 0.185);
+    padding-left: 36px;
+    padding-top: 10px;
+    font-size: 60px;
+    border-radius: 7px;
+    color: #062c7c;
+    font-family: 'Permanent Marker', cursive;
+}
+
+/* Box hover effects */
+.box:hover {
+    background-color: rgba(255, 255, 255, 0.74);
+    transition: all 0.2s ease-out;
+}
+
+/* Label of player turn */
+.container .turn {
+    width: 260px;
+    height: 50px;
+    transform: translate(235px, 160px);
+    font-size: 25px;
+    font-weight: normal;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    color: #e3ecff;
+}
+
+/* Score board */
+.container .details {
+    width: 400px;
+    height: 300px;
+    border: 1px solid #062b7c7f;
+    transform: translate(640px, -240px);
+    border-radius: 10px;
+    transition: all 0.2s ease-out;
+}
+
+/* Score board hover effects */
+.container .details:hover {
+    box-shadow: 0 0 15px #062b7c88;
+}
+
+/* Result showing box */
+.container .details .res_area {
+    transform: translate(218px, 65px);
+    width: 140px;
+    border-radius: 10px;
+    height: 130px;
+    font-size: 30px;
+    color: #e3ecff;
+    background-color: #e3ecff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Winner name */
+.container .details .win_symbol {
+    width: 100px;
+    height: 90px;
+    transform: translate(20px);
+    text-align: center;
+    color: #062c7c;
+    font-size: 70px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.container .details .winner {
+    width: 140px;
+    height: 30px;
+    text-align: center;
+    transform: translate(0, 5px);
+    font-family: 'Mochiy Pop P One', sans-serif;
+    color: #062c7c;
+    font-weight: normal;
+    font-size: 17px;
+}
+
+/* Points Table */
+.view {
+    width: 160px;
+    height: 132px;
+    position: absolute;
+    left: 35px;
+    top: 70px;
+    display: none;
+}
+
+/* Score card title */
+.container .res_head {
+    position: absolute;
+    top: 20px;
+    left: 120px;
+    width: 160px;
+    height: 33px;
+    font-size: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e3ecff;
+    color: #e3ecff;
+    font-family: 'Mochiy Pop P One', sans-serif;
+}
+
+/* Total match count */
+.container .tot_mat {
+    color: #e3ecff;
+    font-size: 22px;
+    position: absolute;
+    width: 180px;
+    font-weight: normal;
+    height: 20px;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+/* Player X points */
+.container .player_x {
+    position: absolute;
+    top: 30px;
+    width: 180px;
+    height: 20px;
+    color: #e3ecff;
+    font-size: 22px;
+    font-weight: normal;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+/* Player O points */
+.container .player_o {
+    color: #e3ecff;
+    font-size: 22px;
+    position: absolute;
+    top: 60px;
+    width: 180px;
+    height: 20px;
+    font-weight: normal;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+/* Draw counts */
+.container .mat_draw {
+    color: #e3ecff;
+    font-size: 22px;
+    position: absolute;
+    top: 90px;
+    width: 180px;
+    height: 20px;
+    font-weight: normal;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+/* Next Game button */
+.container .restart {
+    width: 154px;
+    height: 50px;
+    transform: translate(50px, 80px);
+    border: none;
+    color: white;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-size: 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    background-color: #062c7c;
+    font-family: 'Exo 2', sans-serif;
+}
+
+/* View points button */
+.container .points {
+    width: 154px;
+    height: 50px;
+    transform: translate(30px, 80px);
+    color: #062c7c;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-size: 18px;
+    border-radius: 10px;
+    font-weight: 500;
+    background-color: inherit;
+    border: 2px solid #062c7c;
+    font-family: 'Exo 2', sans-serif;
+}
+
+/* View points button hover effects */
+.container .points:hover {
+    transition: all 0.2s ease-out;
+    color: white;
+    border: 2px solid #e3ecff;
+}
+
+/* Next Game button hover effects */
+.container .restart:hover {
+    box-shadow: 0 0 10px 1px #e3ecff;
+    transition: all 0.2s ease-out;
+    color: white;
+}
+
+/* Responsive for large tabulate */
+@media only screen and (max-width: 1200px) {
+    .container {
+        width: 80%;
+        transform: translate(120px, 75px);
+    }
+
+    .play_area {
+        width: 210px;
+        height: 210px;
+    }
+
+    .container h1 {
+        width: 167px;
+        height: 35px;
+        color: #e3ecff;
+        line-height: 40px;
+        font-size: 50px;
+        transform: translate(208px, 110px);
+        font-family: Dongle, sans-serif;
+    }
+
+    .container h1:hover {
+        transform: translate(208px, 90px);
+        transition: 0.2s ease-out;
+        border-bottom: 2px solid #e3ecff;
+    }
+
+    .box {
+        padding: 0;
+        margin: 0;
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container .turn {
+        width: 170px;
+        height: 30px;
+        transform: translate(210px, 150px);
+        font-size: 17px;
+        font-weight: normal;
+        font-family: 'Mochiy Pop P One', sans-serif;
+        color: #e3ecff;
+    }
+
+    .container .details {
+        width: 350px;
+        height: 240px;
+        border: 1px solid #062c7c;
+        transform: translate(500px, -125px);
+        border-radius: 10px;
+    }
+
+    .container .details .res_area {
+        transform: translate(200px, 65px);
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        color: #e3ecff;
+        background-color: #e3ecff;
+        box-shadow: 0 0 20px #062c7c;
+    }
+
+    .container .details .win_symbol {
+        width: 80px;
+        height: 60px;
+        transform: translate(10px, 5px);
+        text-align: center;
+        color: #062c7c;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Permanent Marker', cursive;
+    }
+
+    .view {
+        width: 130px;
+        height: 92px;
+        position: absolute;
+        left: 50px;
+        top: 70px;
+        display: none;
+    }
+
+    .container .tot_mat {
+        color: #e3ecff;
+        font-size: 17px;
+        position: absolute;
+        width: 180px;
+        font-weight: normal;
+        height: 20px;
+        font-family: 'Balsamiq Sans', cursive;
+    }
+
+    .container .player_x {
+        position: absolute;
+        top: 25px;
+        width: 180px;
+        height: 20px;
+        color: #e3ecff;
+        font-size: 17px;
+        font-weight: normal;
+        font-family: 'Balsamiq Sans', cursive;
+    }
+
+    .container .player_o {
+        color: #e3ecff;
+        font-size: 17px;
+        position: absolute;
+        top: 50px;
+        width: 180px;
+        height: 20px;
+        font-weight: normal;
+        font-family: 'Balsamiq Sans', cursive;
+    }
+
+    .container .mat_draw {
+        color: #e3ecff;
+        font-size: 17px;
+        position: absolute;
+        top: 73px;
+        width: 180px;
+        height: 20px;
+        font-weight: normal;
+        font-family: 'Balsamiq Sans', cursive;
+    }
+
+    .container .details .winner {
+        width: 95px;
+        height: 35px;
+        text-align: center;
+        transform: translate(2px, 2px);
+        font-family: 'Mochiy Pop P One', sans-serif;
+        color: #062c7c;
+        font-weight: normal;
+        font-size: 12px;
+    }
+
+    .container .res_head {
+        position: absolute;
+        top: 10px;
+        left: 95px;
+        width: 138px;
+        height: 28px;
+        font-size: 17px;
+        font-weight: normal;
+        text-transform: uppercase;
+        border-bottom: 1px solid #e3ecff;
+        color: #e3ecff;
+        font-family: 'Mochiy Pop P One', sans-serif;
+    }
+
+    .container .restart {
+        width: 125px;
+        height: 40px;
+        transform: translate(55px, 80px);
+        border: none;
+        color: white;
+        text-decoration: none;
+        text-transform: lowercase;
+        font-size: 15px;
+        border-radius: 10px;
+        font-weight: 600;
+        background-color: #062c7c;
+        font-family: 'Exo 2', sans-serif;
+    }
+
+    .container .points {
+        width: 125px;
+        height: 40px;
+        transform: translate(30px, 80px);
+        color: #062c7c;
+        text-decoration: none;
+        text-transform: lowercase;
+        font-size: 15px;
+        border-radius: 10px;
+        font-weight: 500;
+        background-color: inherit;
+        border: 2px solid #062c7c;
+        font-family: 'Exo 2', sans-serif;
+    }
+}
+
+
+/* Responsive for mobile */
+@media only screen and (max-width: 426px) {
+    .container {
+        width: 406px;
+        height: 710px;
+        transform: translate(10px, 10px);
+        box-shadow: none;
+    }
+
+    .container .page_res {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    .container h1 {
+        width: 165px;
+        height: 35px;
+        color: #e3ecff;
+        font-size: 50px;
+        transform: translate(120px, 18px);
+        font-family: Dongle, sans-serif;
+    }
+
+    .container h1:hover {
+        transform: translate(120px, 7px);
+        transition: 0.2s ease-out;
+        border-bottom: 1px solid #e3ecff;
+    }
+
+    .play_area {
+        width: 280px;
+        height: 280px;
+        transform: translate(65px, 50px);
+    }
+
+    .play_area:hover {
+        box-shadow: none;
+    }
+
+    .box {
+        padding: 0;
+        margin: 0;
+        width: 90px;
+        height: 90px;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container .turn {
+        width: 193px;
+        height: 30px;
+        transform: translate(110px, 55px);
+        font-size: 20px;
+        font-weight: normal;
+        font-family: 'Mochiy Pop P One', sans-serif;
+        color: #e3ecff;
+    }
+
+    .container .details {
+        width: 405px;
+        height: 255px;
+        border: 1px solid #062b7c6e;
+        transform: translate(0px, 100px);
+        border-radius: 10px;
+    }
+
+    .container .details:hover {
+        box-shadow: 0 0 5px #062b7ccc;
+    }
+
+    .container .res_head {
+        position: absolute;
+        top: 10px;
+        left: 138px;
+        width: 128px;
+        height: 25px;
+        font-size: 16px;
+        font-weight: normal;
+        text-transform: uppercase;
+        border-bottom: 1px solid #e3ecff;
+        color: #e3ecff;
+        font-family: 'Mochiy Pop P One', sans-serif;
+    }
+
+    .view {
+        width: 140px;
+        height: 120px;
+        position: absolute;
+        left: 50px;
+        top: 60px;
+        display: none;
+    }
+
+    .container .tot_mat {
+        color: #e3ecff;
+        font-size: 20px;
+        position: absolute;
+        top: 15px;
+        width: 120px;
+        font-weight: normal;
+        height: 20px;
+        font-family: 'Balsamiq Sans', cursive;
+    }
+
+    .container .player_x {
+        position: absolute;
+        top: 40px;
+        width: 120px;
+        height: 20px;
+        color: #e3ecff;
+        font-size: 20px;
+        font-weight: normal;
+        font-family: 'Balsamiq Sans', cursive;
+    }
+
+    .container .player_o {
+        color: #e3ecff;
+        font-size: 20px;
+        position: absolute;
+        top: 65px;
+        width: 120px;
+        height: 20px;
+        font-weight: normal;
+        font-family: 'Balsamiq Sans', cursive;
+    }
+
+    .container .mat_draw {
+        color: #e3ecff;
+        font-size: 20px;
+        position: absolute;
+        top: 90px;
+        width: 120px;
+        height: 20px;
+        font-weight: normal;
+        font-family: 'Balsamiq Sans', cursive;
+    }
+
+    .container .details .res_area {
+        transform: translate(220px, 65px);
+        width: 150px;
+        height: 120px;
+        border-radius: 10px;
+        color: #e3ecff;
+        background-color: #e3ecff;
+        box-shadow: 0 0 7px #062c7c;
+    }
+
+    .container .details .win_symbol {
+        width: 120px;
+        height: 65px;
+        transform: translate(15px, 6px);
+        text-align: center;
+        color: #062c7c;
+        font-size: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Permanent Marker', cursive;
+    }
+
+    .container .details .winner {
+        width: 147px;
+        height: 38px;
+        text-align: center;
+        transform: translate(2px, 18px);
+        font-family: 'Mochiy Pop P One', sans-serif;
+        color: #062c7c;
+        font-weight: normal;
+        font-size: 17px;
+    }
+
+    .container .points {
+        width: 150px;
+        height: 40px;
+        transform: translate(30px, 75px);
+        color: #062c7c;
+        text-decoration: none;
+        text-transform: lowercase;
+        font-size: 20px;
+        border-radius: 5px;
+        font-weight: 500;
+        padding: 0 0 2px 2px;
+        background-color: inherit;
+        border: 1px solid #062c7c;
+        font-family: 'Exo 2', sans-serif;
+    }
+
+    .container .points:hover {
+        border: 1px solid #e3ecff;
+    }
+
+    .container .restart {
+        width: 170px;
+        height: 40px;
+        transform: translate(53px, 75px);
+        border: none;
+        color: white;
+        text-decoration: none;
+        text-transform: lowercase;
+        font-size: 20px;
+        padding-bottom: 5px;
+        border-radius: 9px;
+        font-weight: 600;
+        background-color: #062c7c;
+        font-family: 'Exo 2', sans-serif;
+    }
+
+    .container .restart:hover {
+        box-shadow: 0 0 5px #e3ecff;
+    }
+}
